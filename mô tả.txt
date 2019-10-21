@@ -1,0 +1,5 @@
+câu 2:
+Tạo 2 hàm maxValue, minValue
++ hàm maxValue trả về minimax ở trạng thái hiện tại
+    B1: Kiểm tra nếu depth > depth(đầu vào) hoặc trạng thái win thì trả về điểm ở vị trí hiệ tại
+    B2:
