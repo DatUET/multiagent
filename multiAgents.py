@@ -155,7 +155,7 @@ class MinimaxAgent(MultiAgentSearchAgent):
         # ***     3 12  8  5  4  6  14  1  11
 
         def minimaxSearch(state, agentIndex, depth):
-            # Neu la min layer va la ghost cuoi dung
+            # Neu la ghost cuoi dung
             if agentIndex == state.getNumAgents():
                 # neu la max depth
                 if depth == self.depth:
@@ -179,8 +179,6 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
     """
       Your minimax agent with alpha-beta pruning (question 3)
     """
-
-
 
     def getAction(self, gameState):
         """
@@ -228,9 +226,9 @@ class AlphaBetaAgent(MultiAgentSearchAgent):
         for action in actions:
             successor = gameState.generateSuccessor(agent, action)
 
-            if agent == gameState.getNumAgents() - 1:
+            if agent == gameState.getNumAgents() - 1: # Nếu là ghost cuối thì xét đến Pacman
                 cost = self.getMaxValue(successor, alpha, beta, depth + 1)[0]
-            else:
+            else: # Nếu ko phải thì xét tiếp đến ma tiếp theo
                 cost = self.getMinValue(successor, alpha, beta, depth, agent + 1)[0]
 
             if cost < successorCost:
@@ -259,7 +257,7 @@ class ExpectimaxAgent(MultiAgentSearchAgent):
         "*** YOUR CODE HERE ***"
 
         def expectimaxSearch(state, agentIndex, depth):
-            # Neu la min layer va la ghost cuoi dung
+            # Neu la ghost cuoi dung
             if agentIndex == state.getNumAgents():
                 # neu la max depth
                 if depth == self.depth:
